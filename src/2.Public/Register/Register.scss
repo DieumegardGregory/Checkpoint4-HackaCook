@@ -1,0 +1,28 @@
+.register-form {
+  height: 400px;
+  width: 90%;
+  background-color: var(--secondary);
+  border: 2px solid var(--primary);
+  justify-content: space-around !important;
+  margin: 2em auto;
+}
+
+.public-input {
+  height: 20px;
+  padding: 5px;
+}
+
+.public-btn {
+  width: auto;
+  height: 30px;
+  padding: 5px;
+  background-color: var(--police-light);
+  color: var(--police-dark);
+  border: 1px solid var(--police-light);
+}
+
+.public-btn:hover {
+  background-color: var(--primary);
+  color: var(--police-dark);
+}
+

@@ -1,0 +1,28 @@
+.menu-container {
+  height: 50%;
+  width: 100%;
+  position: fixed;
+  top: 130px;
+  background: url('https://cdn.pixabay.com/photo/2021/01/10/23/38/limes-5906653_960_720.jpg') center no-repeat;
+  transition: all 0.3s;
+}
+
+.nav-list {
+  list-style: none;
+  
+}
+
+.nav-item {
+  margin: 1em;
+  a {
+    text-decoration: none;
+  }
+}
+
+.hidden {
+  left: -100%;
+}
+
+.visible {
+  left: 0;
+}
