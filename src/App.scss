@@ -1,0 +1,52 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --primary: #ef6c00;
+  --secondary: #aeea00;
+  --police-light: #ffffff;
+  --police-dark: #202020;
+}
+
+body {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-align: center;
+  margin: 0.5em;
+}
+
+.flex-center-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.flex-center-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.grid-20-80 {
+  display: grid;
+  grid-template-columns: 20% 80%;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+}
+
+button:hover {
+  transform: scale(1.1);
+  transition: 0.3s ease-in;
+}
