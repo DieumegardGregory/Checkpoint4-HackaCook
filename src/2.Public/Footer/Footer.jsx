@@ -5,7 +5,6 @@ import './Footer.scss';
 const Footer = () => {
   return (
     <>
-    <h3>en dev</h3>
     <div className="footer-container">
       <BsFacebook className="social-icon"/>
       <BsInstagram className="social-icon"/>

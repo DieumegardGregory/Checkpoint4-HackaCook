@@ -1,21 +1,53 @@
+.welcome-container {
+  position: fixed;
+  height: 60px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 10% 90%;
+  background-color: var(--police-light);
+  border-bottom: 2px solid var(--secondary);
+  z-index: 50;
+  .welcome-header {
+    grid-column: 2;
+    justify-content: space-around !important;
+  }
+  p {
+    text-align: center;
+    margin: 20px 0;
+  }
+}
+
+.cale-container {
+  height: 60px;
+  display: block;
+}
+
 .menu-container {
   height: 50%;
   width: 100%;
   position: fixed;
-  top: 130px;
+  top: 150px;
   background: url('https://cdn.pixabay.com/photo/2021/01/10/23/38/limes-5906653_960_720.jpg') center no-repeat;
   transition: all 0.3s;
+  z-index: 1000;
 }
 
 .nav-list {
   list-style: none;
-  
 }
 
 .nav-item {
   margin: 1em;
   a {
     text-decoration: none;
+    color: var(--police-dark);
+    font-weight: bold;
+  }
+}
+
+.nav-item:hover {
+  a {
+    color: var(--police-light);
   }
 }
 
@@ -25,4 +57,12 @@
 
 .visible {
   left: 0;
+}
+
+@media screen and (min-width: 640px) {
+  .menu-container {
+    height: 60%;
+    width: 25%;
+    border-radius: 0 30% 30% 0;
+  }
 }

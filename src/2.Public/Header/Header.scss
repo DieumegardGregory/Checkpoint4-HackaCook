@@ -1,11 +1,25 @@
 .header-container {
+  position: fixed;
   height: 75px;
   width: 100%;
   background-color: var(--primary);
+  z-index: 60;
+}
+
+h1 {
+  text-shadow: 2px 2px 3px var(--police-light);
+}
+
+.header-cale {
+  display: block;
+  height: 75px;
 }
 
 .logo {
   height: 50px;
   width: 50px;
   margin: 10px;
+  position: absolute;
+  top: 5%;
+  left: 5%;
 }

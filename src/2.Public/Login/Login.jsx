@@ -12,9 +12,10 @@ const Login = () => {
   const [opened, setOpened] = useState(false);
   const navigate = useNavigate();
 
-  const handleNavigate = () => {
-    navigate('/');
-  }
+  const handleNavigate = (id) => {
+    navigate(`/loggedin/${id}`);
+  };
+
   const handleLogin = (event) => {
     if (!email && !password) {
       setMessage('Vous devez renseigner votre email et votre mot de passe')
@@ -26,13 +27,12 @@ const Login = () => {
         password: password
       })
       .then((res) => res.data)
-      .then(() => {
+      .then((data) => {
         setEmail('');
         setPassword('');
-        setMessage('Connexion en cours...');
-        setOpened(true);
-      }).then(() => {
-        setTimeout(handleNavigate, 3000);
+        const id = data.id;
+        handleNavigate(id);
+        
       })
       .catch((err) => err.message)
     }
@@ -41,8 +41,9 @@ const Login = () => {
   return (
     <>
     <Header />
-    <MessagePopup message={message} opened={opened} />
+    <MessagePopup message={message} opened={opened} setOpened={setOpened}/>
     <form className="login-form flex-center-column">
+      <h3>Connexion :</h3>
     <label htmlFor="email" className="public-label">Email:<br />
         <input type="email" name="email" className="public-input" value={email} onChange={(event) => setEmail(event.target.value)}/>
       </label>

@@ -10,6 +10,8 @@
 .public-input {
   height: 20px;
   padding: 5px;
+  margin: 10px;
+  text-align: center;
 }
 
 .public-btn {
@@ -19,10 +21,23 @@
   background-color: var(--police-light);
   color: var(--police-dark);
   border: 1px solid var(--police-light);
+  margin: 5px;
 }
 
 .public-btn:hover {
   background-color: var(--primary);
   color: var(--police-dark);
+}
+
+@media screen and (min-width: 640px) {
+  .register-form {
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 940px) {
+  .register-form {
+    width: 30%;
+  }
 }
 

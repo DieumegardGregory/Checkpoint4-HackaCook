@@ -1,0 +1,29 @@
+.each-slide {
+  height: 300px;
+  width: 350px;
+  margin: 0 auto;
+}
+
+.slide-img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.carousel {
+  margin: 30px 0;
+}
+
+@media screen and (min-width: 640px) {
+  .each-slide {
+    height: 400px;
+    width: 600px;
+  }
+}
+
+@media screen and (min-width: 940px) {
+  .each-slide {
+    height: 400px;
+    width: 900px;
+  }
+}
