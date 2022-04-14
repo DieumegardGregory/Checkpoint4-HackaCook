@@ -1,0 +1,54 @@
+.favorite-popup {
+  height: 30%;
+  width: 60%;
+  position: fixed;
+  top: 19%;
+  right: 5%;
+  background-color: var(--secondary);
+  border: 10px double var(--primary);
+  border-radius: 30% 30% 30% 30% / 30% 30% 30% 30%;
+  z-index: 10000;
+  animation: appear 0.1s ease-in;
+  transition: 0.2s;
+  p {
+    animation: show 0.3s linear;
+  }
+}
+
+@keyframes appear {
+  from {
+    height: 0;
+    width: 0;
+  }
+  to {
+    height: 30%;
+    width: 60%;
+  }
+}
+
+@keyframes show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media screen and (min-width: 640px) {
+  .favorite-popup {
+  height: 50%;
+  width: 50%;
+  }
+
+  @keyframes appear {
+    from {
+      height: 0;
+      width: 0;
+    }
+    to {
+      height: 50%;
+      width: 50%;
+    }
+  }
+}  

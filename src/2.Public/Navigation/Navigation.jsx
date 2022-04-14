@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import BurgerMenu from '../BurgerMenu/BurgerMenu';
 import './Navigation.scss';
 
-const Navigation = () => {
+const Navigation = ({userPseudo, handleFavorite, openPopup}) => {
   const [isClicked, setIsClicked] = useState(false);
 
   const handleClick = () => {
@@ -28,9 +28,19 @@ const Navigation = () => {
     }
   ];
 
+
+
   return (
     <>
+    <div className="welcome-container">
     <BurgerMenu isClicked={isClicked} handleClick={handleClick} />
+    {userPseudo ? (
+    <div className="welcome-header flex-center-row">
+    <p>Bienvenue {userPseudo} !</p>
+    <button type="button" className="recipe-btn" onClick={handleFavorite}>{openPopup ? 'Fermer' : 'Voir mes favoris'}</button>
+    </div>) : null}
+    </div>
+      <div className="cale-container"></div>
       <div
         className={
           isClicked
