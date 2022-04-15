@@ -18,12 +18,10 @@ const FavoritePopup = () => {
     getFavoritesList();
   }, []);
 
-  console.log(favoriteList)
-
   return (
     <div className="favorite-popup flex-center-column">
       <h3>Mes favoris :</h3>
-      {favoriteList.length === 0 ? 'Vous n\'avez pas encore de favoris' : (
+      {favoriteList.length === 0 ? <p>Vous n'avez pas encore de favoris</p> : (
         favoriteList.map((favoris) => (
           <div key={favoris.recette_id}>
             {favoris.nom_recette}

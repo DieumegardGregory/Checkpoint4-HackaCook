@@ -37,7 +37,7 @@ const Navigation = ({userPseudo, handleFavorite, openPopup}) => {
     {userPseudo ? (
     <div className="welcome-header flex-center-row">
     <p>Bienvenue {userPseudo} !</p>
-    <button type="button" className="recipe-btn" onClick={handleFavorite}>{openPopup ? 'Fermer' : 'Voir mes favoris'}</button>
+    <button type="button" className="recipe-btn" onClick={handleFavorite}>{openPopup ? 'Fermer' : 'Mes favoris'}</button>
     </div>) : null}
     </div>
       <div className="cale-container"></div>

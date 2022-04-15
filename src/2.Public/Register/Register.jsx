@@ -18,7 +18,7 @@ const Register = () => {
   }
 
   const handleRegister = (event) => {
-    if (!pseudo && !email && !password) {
+    if (!pseudo || !email || !password) {
       setMessage('Vous devez renseigner tous les champs');
       setOpened(true);
     } else {

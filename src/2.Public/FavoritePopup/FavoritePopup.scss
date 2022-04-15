@@ -10,8 +10,11 @@
   z-index: 10000;
   animation: appear 0.1s ease-in;
   transition: 0.2s;
+  h3 {
+    animation: show 0.5s linear;
+  }
   p {
-    animation: show 0.3s linear;
+    animation: show 0.5s linear;
   }
 }
 
