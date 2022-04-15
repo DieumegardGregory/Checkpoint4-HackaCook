@@ -17,7 +17,7 @@ const Login = () => {
   };
 
   const handleLogin = (event) => {
-    if (!email && !password) {
+    if (!email || !password) {
       setMessage('Vous devez renseigner votre email et votre mot de passe')
       setOpened(true);
     } else {
@@ -25,6 +25,9 @@ const Login = () => {
       axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/auth/login`, {
         email: email,
         password: password
+      },
+      {
+        withCredentials: true,
       })
       .then((res) => res.data)
       .then((data) => {

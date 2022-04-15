@@ -31,10 +31,6 @@ const AllRecipes = () => {
     navigate(`/recette/${id}`);
   }
 
-  const handleAddFavorite = () => {
-    axios.post(`${BACKEND_URL}/api/recettes/favorites`)
-  }
-
   return (
     <div className="public-page">
     <Header />

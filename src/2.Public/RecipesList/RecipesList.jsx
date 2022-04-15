@@ -5,12 +5,15 @@ import { BsFillClockFill } from 'react-icons/bs';
 import { GiKnifeFork } from 'react-icons/gi';
 import { AiOutlineStar, AiFillStar } from 'react-icons/ai';
 import Loader from '../../1.Admin/Loader/Loader';
+import MessagePopup from '../../1.Admin/MessagePopup/MessagePopup';
 import './RecipesList.scss';
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
 const RecipesList = ({searchFilter}) => {
   const [recipesFound, setRecipesFound] = useState([]);
+  const [message, setMessage] = useState('');
+  const [opened, setOpened] = useState(false);
   const params = useParams();
   const navigate = useNavigate();
 
@@ -36,22 +39,31 @@ const RecipesList = ({searchFilter}) => {
   }
 
   const handleAddFavorite = (id) => {
-    
-    axios.post(`${BACKEND_URL}/api/recettes/favorites`,
-    {
-      user_id: params.id,
-      recette_id: id
-    })
-    .then((res) => res.data)
-    .then((data) => console.log(data))
-    .catch((err) => err.message)
+    if (!params.id) {
+      setMessage('Vous devez être connecté pour ajouter un favori!');
+      setOpened(true);
+    } else {
+
+      axios.post(`${BACKEND_URL}/api/recettes/favorites`,
+      {
+        user_id: parseInt(params.id, 10),
+        recette_id: id
+      },
+      {
+        withCredentials: true,
+      })
+      .then((res) => res.data)
+      .then((data) => console.log(data))
+      .catch((err) => err.message)
+    }
   }
 
   return (
     <div className="public-page">
-    <div className="recipes-list-header flex-center-row">
+      <MessagePopup message={message} opened={opened} setOpened={setOpened} />
+    {/* <div className="recipes-list-header flex-center-row">
 
-    </div>
+    </div> */}
       {recipesFound ? (
         <div className="recipes-container flex-center-column">
         {recipesFound.length > 0 ? <h3>Recettes disponibles:</h3> : null}

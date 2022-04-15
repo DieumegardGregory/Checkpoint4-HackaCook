@@ -22,6 +22,7 @@
   img {
     height: 100%;
     width: 100%;
+    object-fit: cover;
   }
 }
 
@@ -31,9 +32,9 @@
 }
 
 .recipe-btn {
-  width: 150px;
+  width: 100px;
   height: 30px; 
-  margin: 0.5em;
+  margin: 0.8em;
   padding: 5px;
   border: 2px solid var(--secondary);
 }
