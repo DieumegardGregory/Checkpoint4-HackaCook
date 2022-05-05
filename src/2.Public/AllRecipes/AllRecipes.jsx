@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import Header from '../Header/Header';
 import Navigation from '../Navigation/Navigation';
 import Footer from '../Footer/Footer';
-import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
 import { BsFillClockFill } from 'react-icons/bs';
 import { GiKnifeFork } from 'react-icons/gi';
 import './AllRecipes.scss';
@@ -41,7 +40,6 @@ const AllRecipes = () => {
    <div className="recipe-container flex-center-column" key={recipe.id_recette}>
      <div className="recipe-header flex-center-row">
         <p className="recipe-title">{recipe.nom_recette}</p>
-        {recipe.isFavorite ? <AiFillStar className="favorite-icon" /> : <AiOutlineStar className="favorite-icon"/>}
      </div>
    <div className="recipe-image-container">
      <img src={`${BACKEND_URL}/images/${recipe.image_recette}`} alt={recipe.nom_recette} />
