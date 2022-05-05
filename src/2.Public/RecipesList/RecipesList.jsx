@@ -14,6 +14,7 @@ const RecipesList = ({searchFilter}) => {
   const [recipesFound, setRecipesFound] = useState([]);
   const [message, setMessage] = useState('');
   const [opened, setOpened] = useState(false);
+  const [favoriteList, setFavoriteList] = useState([]);
   const params = useParams();
   const navigate = useNavigate();
 
@@ -27,17 +28,25 @@ const RecipesList = ({searchFilter}) => {
     .catch((err) => err.message);
   }
 
+  const getFavoritesList = () => {
+    axios.get(`${BACKEND_URL}/api/recettes/favorites/${parseInt(params.id, 10)}`)
+    .then((res) => res.data)
+    .then((data) => setFavoriteList(data))
+    .catch((err) => err.message);
+  }
+
   useEffect(() => {
     if(searchFilter !== 0) {
       findRecipes();
     }
+    getFavoritesList();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchFilter]);
 
   const seeRecipe = (id) => {
     navigate(`/recette/${id}`);
   }
-
+console.log("favoris?", favoriteList)
   const handleAddFavorite = (id) => {
     if (!params.id) {
       setMessage('Vous devez être connecté pour ajouter un favori!');
@@ -54,7 +63,24 @@ const RecipesList = ({searchFilter}) => {
       })
       .then((res) => res.data)
       .then((data) => console.log(data))
+      .then(() => getFavoritesList())
       .catch((err) => err.message)
+    }
+  }
+
+  const handleDeleteFavorite = (id) => {
+    if (!params.id) {
+      setMessage('Vous devez être connecté pour ajouter un favori!');
+      setOpened(true);
+    } else {
+      axios.delete(`${BACKEND_URL}/api/recettes/favorites/${params.id}/${id}`,
+      {
+        withCredentials: true,
+      })
+      .then((res) => res.data)
+      .then((data) => console.log(data))
+      .then(() => getFavoritesList())
+      .catch((err) => err.message);
     }
   }
 
@@ -70,7 +96,7 @@ const RecipesList = ({searchFilter}) => {
       {recipesFound?.map((recipe) => (
         <div className="recipe-container flex-center-row" key={recipe.id_recette}>
           <p className="recipe-title">{recipe.nom_recette}</p>
-          {recipe.isFavorite ? <AiFillStar className="favorite-icon" /> : <AiOutlineStar className="favorite-icon" onClick={() => handleAddFavorite(recipe.id_recette)}/>}
+          {favoriteList.find((item) => item.nom_recette === recipe.nom_recette) ? <AiFillStar className="favorite-icon" onClick={() => handleDeleteFavorite(recipe.id_recette)} /> : <AiOutlineStar className="favorite-icon" onClick={() => handleAddFavorite(recipe.id_recette)}/>}
           <div className="recipe-image-container">
             <img src={`${BACKEND_URL}/images/${recipe.image_recette}`} alt={recipe.nom_recette} />
           </div>

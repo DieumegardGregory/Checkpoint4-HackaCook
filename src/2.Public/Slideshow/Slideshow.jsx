@@ -57,6 +57,7 @@ const Slideshow = () => {
       arrows={false} 
       showDots={true}
       centerMode={false}
+      autoPlay={true}
       className="carousel"
       >
         {recipes?.map((recette) => (
