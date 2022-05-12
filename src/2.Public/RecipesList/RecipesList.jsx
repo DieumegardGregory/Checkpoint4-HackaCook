@@ -78,7 +78,6 @@ console.log("favoris?", favoriteList)
         withCredentials: true,
       })
       .then((res) => res.data)
-      .then((data) => console.log(data))
       .then(() => getFavoritesList())
       .catch((err) => err.message);
     }
