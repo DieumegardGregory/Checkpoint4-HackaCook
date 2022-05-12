@@ -79,9 +79,9 @@ console.log("favoris?", favoriteList)
       })
       .then((res) => res.data)
       .then((data) => console.log(data))
-      .then(() => getFavoritesList())
       .catch((err) => err.message);
     }
+    getFavoritesList();
   }
 
   return (
