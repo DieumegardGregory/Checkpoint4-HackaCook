@@ -13,5 +13,6 @@
 @media screen and (min-width: 640px) {
   .public-page {
     background-color: var(--police-light);
+    overflow-x: hidden;
   }
 }
