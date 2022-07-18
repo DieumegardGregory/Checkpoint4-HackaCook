@@ -6,8 +6,13 @@
   z-index: 60;
 }
 
+.title-container {
+  margin: auto;
+}
+
 h1 {
   text-shadow: 2px 2px 3px var(--police-light);
+  font-size: 20px;
 }
 
 .header-cale {
@@ -19,7 +24,10 @@ h1 {
   height: 50px;
   width: 50px;
   margin: 10px;
-  position: absolute;
-  top: 5%;
-  left: 5%;
+}
+
+@media screen and (min-width: 600px) {
+  h1 {
+    font-size: 30px;
+  }
 }
